@@ -1,45 +1,21 @@
-import { Cartwidget } from "../Cartwidget/Cartwidget";
+import { NavLink } from "react-router-dom"
 
 export const NavBar = () => {
-	return (
-		<>
-			<nav className="navbar navbar-expand-lg bg-body-tertiary">
-				<div className="container-fluid">
-					<div className="collapse navbar-collapse" id="navbarNav">
-						<ul className="navbar-nav">
-							<li className="nav-item">
-								<a className="nav-link active" aria-current="page" href="#">
-									Producto 1
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="#">
-								Producto 2
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="#">
-								Producto 3
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="#">
-								Producto 4
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="#">
-								Producto 5
-								</a>
-							</li>
-							<Cartwidget />
-						</ul>
-					</div>
-					
-				</div>
-				
-			</nav>
-			
-		</>
-	);
-};
+  return (
+    <nav className="container mt-2 d-flex ">
+        <NavLink to="/">
+            <button className="btn btn-dark mx-2">Home</button>
+        </NavLink>
+        
+        <NavLink to="/category/men's clothing">
+            <button className="btn btn-dark mx-2">Hombre</button>
+        </NavLink>
+        <NavLink to="/category/women's clothing">
+            <button className="btn btn-dark mx-2">Mujer</button>
+        </NavLink>
+        <NavLink to="/cart">
+            <button className="btn btn-dark mx-2">Carrito</button>
+        </NavLink>
+    </nav>
+  )
+}
