@@ -1,7 +1,23 @@
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
+import { ItemCount } from "../ItemCount/ItemCount";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
-export const ItemDetail = ({ title, category, price, image, description }) => {
+export const ItemDetail = ({ title, category, price, image, description, rating }) => {
+
+  const { handleAddProductCart } = useContext(GlobalContext);
+  const handleAddProduct = () => { 
+      const product = {
+        title, category, price, image, description, rating,
+      }
+      handleAddProductCart( product )
+   }
+
+//   const onAdd = (items) => { 
+//     alert(`Se agregaron ${items} al carrito`)
+//  }
+
   return (
     <div className="p-5 border border-3 rounded-4">
       <div className="d-flex justify-content-center">
@@ -16,6 +32,7 @@ export const ItemDetail = ({ title, category, price, image, description }) => {
       <Link to={"/"}>
         <Button text="Volver" variant="btn-dark" />
       </Link>
+      <ItemCount stock={rating.count} onAdd={handleAddProduct} />
     </div>
   );
 };
