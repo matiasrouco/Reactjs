@@ -45,6 +45,19 @@ export const GlobalContextProvider = ({ children }) => {
 		}
 	};
 
+	const agregarOrdenCompra = async () => {
+		const collectionRef = collection(db, "orders");
+  
+		const nuevoRegistro = {
+		  cantidad: 1,
+		  total: 1,
+		};
+		addDoc(collectionRef, nuevoRegistro);
+  
+
+		clearCart();
+	};
+
 	const handleTotalProducts = () => {
 		const items = cart.reduce((acum, item) => acum + item.quantity, 0);
 		setTotalProducts(items);
