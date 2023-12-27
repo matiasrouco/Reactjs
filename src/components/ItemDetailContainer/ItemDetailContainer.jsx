@@ -8,15 +8,15 @@ export const ItemDetailContainer = () => {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
 
-  const getProductsDB = async (id) => {
+  const getProductsDB = () => {
 
-      const myProducts = query(collection(db, "products"), where("id", "==", id));
+      const myProducts = query(collection(db, "products"),where("id", "==", id));
+
 
       getDocs(myProducts)
                   .then ( response=>{
                     const productList = response.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
                   setProducts(productList);
-
                   }
                   )
   };
@@ -25,9 +25,11 @@ export const ItemDetailContainer = () => {
     getProductsDB(id);
   }, [id]);
 
+
+
   return (
     <>
-     <ItemListDetail items={products} />
+     {<ItemListDetail items={products} />}
   </>
   );
 };

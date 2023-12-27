@@ -1,7 +1,6 @@
-import { useFetch } from "../../hooks";
 import { ItemList } from "../ItemList/ItemList";
 import { db } from "../../config/firebaseConfig";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 export const ItemListContainer = () => {

@@ -1,13 +1,15 @@
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
 import { useCount } from "../../hooks/useCount";
-import { useContext } from "react";
+import { useContext} from "react";
 import { GlobalContext } from "../../context/GlobalContext";
+
 
 export const Item = ({ title, image, category, id, price }) => {
 	const { handleAddProductCart } = useContext(GlobalContext);
 
 	const { increment, decrement, count } = useCount(0, 55);
+
 
 	return (
 		<div className="border border-3 m-1">
