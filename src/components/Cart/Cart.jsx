@@ -14,7 +14,7 @@ export const Cart = () => {
 		  const collectionRef = collection(db, "orders");
 	
 		  const nuevoRegistro = {
-			cantidad: totalProducts(),
+			cantidad: 1,
 			total: getCartTotal(),
 		  };
 		  await addDoc(collectionRef, nuevoRegistro);
