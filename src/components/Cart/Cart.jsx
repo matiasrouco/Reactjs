@@ -1,11 +1,31 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { db } from "../../config/firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
 
 export const Cart = () => {
 	const { cart, removeFromCart,clearCart, getCartTotal } = useContext(GlobalContext);
+	const { totalProducts } = useContext(GlobalContext);
 
-  console.log ( ItemCount.count);
+
+
+	const agregarOrdenCompra = async () => {
+		try {
+		  const collectionRef = collection(db, "orders");
+	
+		  const nuevoRegistro = {
+			cantidad: totalProducts(),
+			total: getCartTotal(),
+		  };
+		  await addDoc(collectionRef, nuevoRegistro);
+	
+		  console.log("Registro agregado con éxito.");
+		} catch (error) {
+		  console.error("Error al agregar el registro:", error);
+		}
+	  };
+
+
  
 	return (
 		<>
@@ -32,6 +52,7 @@ export const Cart = () => {
 		<div>
 			<h2> TOTAL DE LA COMPRA</h2>
 				<p> Total :{ getCartTotal()}</p>
+				<button className="btn btn-success mx-3" onClick={agregarOrdenCompra()}> COMPRAR </button>
 		</div>
 
 		<div>

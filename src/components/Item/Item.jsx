@@ -10,8 +10,8 @@ export const Item = ({ title, image, category, id, price }) => {
 	const { increment, decrement, count } = useCount(0, 55);
 
 	return (
-		<div className="border border-3 m-1" width="150px">
-			<p className="text-wrap" width="100px">
+		<div className="border border-3 m-1">
+			<p className="text-wrap">
 				Nombre: {title}{" "}
 			</p>
 			<img src={image} alt="foto" width="150px" />
@@ -19,20 +19,22 @@ export const Item = ({ title, image, category, id, price }) => {
 			<Link to={`/products/${id}`}>
 				<Button text="Detalle" variant="btn-dark"></Button>
 			</Link>
-			<div className="d-flex flex-column col-2 justify-content-center align-content-center border border-3 border-primary rounded-3 p-4">
+			<div >
 				<div>
-					<button
-						className="btn btn-outline-secondary mx-3"
-						onClick={increment}
-					>
-						+
-					</button>
-					<strong>{count}</strong>
+					
+					
 					<button
 						className="btn btn-outline-secondary mx-3"
 						onClick={decrement}
 					>
 						-
+					</button>
+					<strong>{count}</strong>
+					<button
+						className="btn btn-outline-secondary mx-3"
+						onClick={increment}
+					>
+						+
 					</button>
 				</div>
 				<button

@@ -1,9 +1,5 @@
-import { createContext, useState,useEffect } from "react";
-
-// Creamos el context
+import { createContext, useState,useEffect,Alert, AlertTitle } from "react";
 export const GlobalContext = createContext(null);
-
-// Creamos el provider
 export const GlobalContextProvider = ({ children }) => {
 	const [totalProducts, setTotalProducts] = useState(0);
 	const [message, setMessage] = useState("");
@@ -37,18 +33,16 @@ export const GlobalContextProvider = ({ children }) => {
 				subTotal: product.price * quantity,
 			};
 			setCart([...cart, newProduct]);
+			alert("Se agrego el producto al carrito");
 		} else {
-			// Copia del carrito
 			const cartCopy = [...cart];
-			// sumamos la cantidad recibida a la cantidad existente
 			cartCopy[index].quantity += quantity;
-			// Volvemos a calcular el sub total con la cantidad actualizada
 			cartCopy[index].subTotal =
 				cartCopy[index].price * cartCopy[index].quantity;
 
 			setCart(cartCopy);
+			alert("Se agrego el producto al carrito");
 		}
-		// setCart([...cart, product]);
 	};
 
 	const handleTotalProducts = () => {

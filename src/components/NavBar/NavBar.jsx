@@ -11,13 +11,13 @@ export const NavBar = () => {
             <button className="btn btn-dark mx-2">Home</button>
         </NavLink>
         
-        <NavLink to="/category/men's clothing">
+        <NavLink to="category/men's clothing">
             <button className="btn btn-dark mx-2">Hombre</button>
         </NavLink>
-        <NavLink to="/category/women's clothing">
+        <NavLink to="category/women's clothing">
             <button className="btn btn-dark mx-2">Mujer</button>
         </NavLink>
-        <NavLink to="/category/electronics">
+        <NavLink to="category/electronics">
             <button className="btn btn-dark mx-2">Electronica</button>
         </NavLink>
         <NavLink to="/cart">
