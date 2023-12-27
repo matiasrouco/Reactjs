@@ -5,8 +5,6 @@ import { collection, addDoc } from "firebase/firestore";
 
 export const Cart = () => {
 	const { cart, removeFromCart,clearCart, getCartTotal } = useContext(GlobalContext);
-	const { totalProducts } = useContext(GlobalContext);
-
 
 
 	const agregarOrdenCompra = async () => {
